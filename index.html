@@ -2568,10 +2568,9 @@ LANGUAGES & INTERESTS
                 setTimeout(() => {
                     // Download actual CV file
                     const link = document.createElement('a');
-                    // Use absolute path that works on GitHub Pages
-                    const basePath = window.location.pathname.includes('/Portfolio/') ? '/Portfolio/' : '/';
-                    link.href = basePath + 'cv/Ansh_Manwani_Resume.pdf';
+                    link.href = './CV/Ansh_Manwani_Resume.pdf';
                     link.download = 'Ansh_Manwani_Resume.pdf';
+                    link.target = '_blank';
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
