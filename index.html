@@ -2813,55 +2813,6 @@ LANGUAGES & INTERESTS
             });
         }
         
-        // Loading screen
-        function initLoadingScreen() {
-            const loadingScreen = document.createElement('div');
-            loadingScreen.id = 'loading-screen';
-            loadingScreen.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #0f172a, #1e293b);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                z-index: 9999;
-            `;
-            
-            loadingScreen.innerHTML = `
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; border: 4px solid rgba(99, 102, 241, 0.3); border-top: 4px solid #6366f1; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 2rem;"></div>
-                    <h2 style="color: #f8fafc; font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, #6366f1, #f59e0b); -webkit-background-clip: text; background-clip: text; color: transparent;">ANSH MANWANI</h2>
-                    <p style="color: #e2e8f0; font-size: 1rem;">Loading amazing portfolio...</p>
-                </div>
-                <style>
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                </style>
-            `;
-            
-            document.body.appendChild(loadingScreen);
-            
-            // Remove loading screen after everything loads
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    gsap.to(loadingScreen, {
-                        opacity: 0,
-                        duration: 1,
-                        ease: "power2.out",
-                        onComplete: () => {
-                            document.body.removeChild(loadingScreen);
-                        }
-                    });
-                }, 500);
-            });
-        }
-        
         // Performance monitoring
         function initPerformanceMonitoring() {
             // Monitor page load performance
@@ -2979,7 +2930,6 @@ LANGUAGES & INTERESTS
         
         // Initialize everything when DOM loads
         document.addEventListener('DOMContentLoaded', () => {
-            initLoadingScreen();
             createParticles();
             initEnhancedThreeJS();
             initEnhancedAnimations();
