@@ -34,6 +34,9 @@
             color: var(--light);
             overflow-x: hidden;
             position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Enhanced particles background */
@@ -1534,12 +1537,7 @@
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-content, .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-model, .about-model {
-                margin-top: 3rem;
+                flex-direction: row;
             }
             
             .section-title h2 {
@@ -1548,6 +1546,7 @@
             
             .hero-text h1 {
                 font-size: 3.5rem;
+                line-height: 1.2;
             }
             
             .skills {
@@ -1560,24 +1559,34 @@
             }
 
             .projects-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            section {
+                padding: 5rem 0;
             }
         }
         
         @media (max-width: 768px) {
+            nav {
+                padding: 1rem 0;
+            }
+            
             .nav-links {
                 display: none;
                 position: fixed;
-                top: 85px;
+                top: 70px;
                 left: 0;
                 width: 100%;
                 background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(99, 102, 241, 0.1));
                 flex-direction: column;
                 align-items: center;
-                padding: 3rem 0;
-                gap: 2rem;
+                padding: 2rem 0;
+                gap: 1.5rem;
                 backdrop-filter: blur(20px);
                 border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+                z-index: 99;
             }
             
             .nav-links.active {
@@ -1588,83 +1597,401 @@
                 display: block;
             }
             
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.2rem;
+            .logo {
+                font-size: 1.5rem;
             }
             
-            .social-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .skills h4 {
-                font-size: 1.7rem;
-            }
-            
-            .skills h4::after {
-                left: -2.5rem;
-                font-size: 1.3rem;
-            }
-
-            .testimonials-container {
-                gap: 1.5rem;
-            }
-
-            .testimonial-card {
-                min-width: 320px;
-                padding: 2rem;
-            }
-
-            .footer-links {
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero-btns, .project-links {
-                flex-direction: column;
+            .hero {
+                padding-top: 5rem;
+                min-height: auto;
             }
             
             .hero-text h1 {
                 font-size: 2.5rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-btns {
+                gap: 1rem;
+            }
+            
+            .hero-model, .about-model {
+                width: 280px;
+                height: 350px;
             }
 
             .section-title h2 {
                 font-size: 2rem;
             }
             
-            .container {
-                padding: 0 1.5rem;
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.8rem;
+            }
+            
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.8rem;
+            }
+            
+            .about-text h3::before {
+                display: none;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+                padding-left: 15px;
             }
             
             .skills {
                 padding: 2rem 1.5rem;
-                margin-top: 2rem;
             }
             
             .skills h4 {
                 font-size: 1.5rem;
             }
+            
+            .skills h4::after, .skills h4::before {
+                display: none;
+            }
+            
+            .skill-info span:first-child {
+                font-size: 1.1rem;
+            }
+            
+            .skill-info span:first-child::before {
+                display: none;
+            }
+            
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .testimonials-container {
+                gap: 1.5rem;
+                padding: 1rem 0 2rem;
+            }
+
+            .testimonial-card {
+                min-width: 300px;
+                padding: 1.5rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1rem;
+            }
+            
+            .author-img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .contact-item {
+                padding: 1.5rem;
+            }
+            
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+            
+            .footer-social a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            nav {
+                padding: 0.8rem 0;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            /* Stack hero and about sections on mobile */
+            .hero-content, .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero {
+                padding-top: 4rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-text p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                padding-left: 0;
+            }
+            
+            .hero-text p::before {
+                display: none;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                margin-bottom: 1.5rem;
+                width: 100%;
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero-model, .about-model {
+                width: 280px;
+                height: 350px;
+                margin: 2rem auto 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2::after {
+                width: 60px;
+            }
+            
+            .section-title p {
+                font-size: 0.95rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .about-text h3::before {
+                display: none;
+            }
+            
+            .about-text p {
+                font-size: 0.95rem;
+                padding-left: 0;
+            }
+            
+            .skills {
+                padding: 1.5rem 1rem;
+                margin-top: 2rem;
+            }
+            
+            .skills h4 {
+                font-size: 1.3rem;
+                margin-bottom: 2rem;
+            }
+            
+            .skill-item {
+                margin-bottom: 2rem;
+                padding: 1rem 0;
+            }
+            
+            .skill-info span:first-child {
+                font-size: 1rem;
+            }
+            
+            .skill-info span:last-child {
+                font-size: 1rem;
+            }
 
             .projects-container {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .project-card {
                 min-width: unset;
             }
+            
+            .project-content {
+                padding: 1.5rem;
+            }
+            
+            .project-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .project-content h3::before {
+                display: none;
+            }
+            
+            .project-content p {
+                font-size: 0.95rem;
+            }
+            
+            .tech-tag {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .project-links .btn {
+                width: 100%;
+            }
 
             .testimonial-card {
-                min-width: 280px;
+                min-width: 260px;
                 padding: 1.5rem;
+            }
+            
+            .testimonial-text {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .testimonial-text::before,
+            .testimonial-text::after {
+                font-size: 3rem;
+            }
+            
+            .author-img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .author-info h4 {
+                font-size: 1.1rem;
+            }
+            
+            .author-info p {
+                font-size: 0.85rem;
+            }
+            
+            .contact-item {
+                padding: 1.2rem;
+                gap: 1rem;
+            }
+            
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .contact-text h4 {
+                font-size: 1.1rem;
+            }
+            
+            .contact-text p,
+            .contact-text a {
+                font-size: 0.9rem;
             }
 
             .contact-form {
-                padding: 2rem;
+                padding: 1.5rem;
+            }
+            
+            .form-group label {
+                font-size: 1rem;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .form-group textarea {
+                min-height: 120px;
+            }
+            
+            .footer-logo {
+                font-size: 1.5rem;
+            }
+            
+            .footer-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-social {
+                gap: 1.5rem;
+            }
+            
+            .footer-social a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .copyright {
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .blob {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .hero-model, .about-model {
+                width: 250px;
+                height: 320px;
+            }
+            
+            .testimonial-card {
+                min-width: 240px;
             }
         }
     </style>
