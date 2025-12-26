@@ -1538,6 +1538,8 @@
         @media (max-width: 992px) {
             .hero-content, .about-content {
                 flex-direction: row;
+                gap: 3rem;
+                text-align: left;
             }
             
             .section-title h2 {
@@ -1547,6 +1549,26 @@
             .hero-text h1 {
                 font-size: 3.5rem;
                 line-height: 1.2;
+            }
+            
+            .hero-text p {
+                padding-left: 0;
+            }
+            
+            .hero-text p::before {
+                display: none;
+            }
+            
+            .about-text h3::before {
+                left: -2.5rem;
+            }
+            
+            .about-text p {
+                padding-left: 15px;
+            }
+            
+            .about-text p::before {
+                left: 5px;
             }
             
             .skills {
@@ -1606,6 +1628,12 @@
                 min-height: auto;
             }
             
+            .hero-content, .about-content {
+                flex-direction: row;
+                text-align: left;
+                gap: 2rem;
+            }
+            
             .hero-text h1 {
                 font-size: 2.5rem;
             }
@@ -1620,8 +1648,8 @@
             }
             
             .hero-model, .about-model {
-                width: 280px;
-                height: 350px;
+                width: 240px;
+                height: 300px;
             }
 
             .section-title h2 {
@@ -1744,6 +1772,7 @@
             .hero-content, .about-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 1.5rem;
             }
             
             .hero {
@@ -1753,12 +1782,15 @@
             .hero-text h1 {
                 font-size: 2rem;
                 margin-bottom: 1rem;
+                text-align: center;
             }
             
             .hero-text p {
                 font-size: 0.95rem;
                 line-height: 1.6;
                 padding-left: 0;
+                text-align: center;
+                margin-bottom: 1.5rem;
             }
             
             .hero-text p::before {
@@ -1769,38 +1801,50 @@
                 flex-direction: column;
                 margin-bottom: 1.5rem;
                 width: 100%;
+                gap: 1rem;
             }
             
             .hero-btns .btn {
                 width: 100%;
                 justify-content: center;
+                margin-bottom: 0.5rem;
             }
             
             .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
             }
             
             .hero-model, .about-model {
-                width: 280px;
-                height: 350px;
-                margin: 2rem auto 0;
+                width: 260px;
+                height: 320px;
+                margin: 1.5rem auto 0;
             }
 
+            .section-title {
+                text-align: center;
+            }
+            
             .section-title h2 {
                 font-size: 1.8rem;
+                margin-bottom: 0.5rem;
             }
             
             .section-title h2::after {
                 width: 60px;
+                left: 50%;
+                transform: translateX(-50%);
             }
             
             .section-title p {
                 font-size: 0.95rem;
+                text-align: center;
             }
             
             .about-text h3 {
                 font-size: 1.5rem;
+                text-align: center;
             }
             
             .about-text h3::before {
@@ -1810,6 +1854,7 @@
             .about-text p {
                 font-size: 0.95rem;
                 padding-left: 0;
+                text-align: center;
             }
             
             .skills {
@@ -1820,6 +1865,17 @@
             .skills h4 {
                 font-size: 1.3rem;
                 margin-bottom: 2rem;
+                text-align: center;
+            }
+            
+            .skills h4::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .skills h4::after {
+                left: 50%;
+                transform: translateX(-50%);
             }
             
             .skill-item {
@@ -1827,12 +1883,20 @@
                 padding: 1rem 0;
             }
             
+            .skill-info {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
             .skill-info span:first-child {
                 font-size: 1rem;
+                text-align: center;
             }
             
             .skill-info span:last-child {
                 font-size: 1rem;
+                text-align: center;
             }
 
             .projects-container {
@@ -1842,14 +1906,17 @@
 
             .project-card {
                 min-width: unset;
+                margin: 0 auto;
             }
             
             .project-content {
                 padding: 1.5rem;
+                text-align: center;
             }
             
             .project-content h3 {
                 font-size: 1.3rem;
+                text-align: center;
             }
             
             .project-content h3::before {
@@ -1858,6 +1925,7 @@
             
             .project-content p {
                 font-size: 0.95rem;
+                text-align: center;
             }
             
             .tech-tag {
@@ -1868,20 +1936,24 @@
             .project-links {
                 flex-direction: column;
                 gap: 0.8rem;
+                justify-content: center;
             }
             
             .project-links .btn {
                 width: 100%;
+                justify-content: center;
             }
 
             .testimonial-card {
                 min-width: 260px;
                 padding: 1.5rem;
+                margin: 0 auto;
             }
             
             .testimonial-text {
                 font-size: 0.95rem;
                 margin-bottom: 1.5rem;
+                text-align: center;
             }
             
             .testimonial-text::before,
@@ -1889,9 +1961,14 @@
                 font-size: 3rem;
             }
             
+            .author-info {
+                text-align: center;
+            }
+            
             .author-img {
                 width: 50px;
                 height: 50px;
+                margin: 0 auto 1rem;
             }
             
             .author-info h4 {
@@ -1905,12 +1982,18 @@
             .contact-item {
                 padding: 1.2rem;
                 gap: 1rem;
+                text-align: center;
             }
             
             .contact-icon {
                 width: 45px;
                 height: 45px;
                 font-size: 1.2rem;
+                margin: 0 auto;
+            }
+            
+            .contact-text {
+                text-align: center;
             }
             
             .contact-text h4 {
@@ -1920,6 +2003,7 @@
             .contact-text p,
             .contact-text a {
                 font-size: 0.9rem;
+                text-align: center;
             }
 
             .contact-form {
@@ -1947,10 +2031,13 @@
             .footer-links {
                 gap: 1rem;
                 font-size: 0.9rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .footer-social {
                 gap: 1.5rem;
+                justify-content: center;
             }
             
             .footer-social a {
@@ -1961,6 +2048,7 @@
             
             .copyright {
                 font-size: 0.9rem;
+                text-align: center;
             }
             
             section {
